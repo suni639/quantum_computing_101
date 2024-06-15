@@ -72,3 +72,11 @@ Quantum gates are the basic building blocks of quantum circuits, similar to clas
   - If the qubit is in state \( |0\rangle \), applying the Z gate leaves it in \( |0\rangle \).
   - If the qubit is in state \( |1\rangle \), applying the Z gate changes it to \( -|1\rangle \).
 
+### Results
+
+The visualizations can be found within this project folder. They show the behavior of the specified quantum gates on a single qubit:
+
+- The measurement result after applying the X gate is `{'1': 1024}`, indicating that the qubit was in state `|1⟩` 1024 times out of 1024 trials, as expected after applying the X gate (which flipped the qubits state from 0 to 1)
+- The measurement result after applying the H and Z gates is approximately `{'0': 500, '1': 524}`, indicating a nearly equal superposition state with a slight variation due to simulation precision. 
+
+To explain the second experiment a bit further, H and Z Gates: Create an equal superposition state with a phase flip, leading to measurement results around `{'0': 512, '1': 512}` due to the equal probability of collapsing to `∣0⟩` or `∣1⟩`.
