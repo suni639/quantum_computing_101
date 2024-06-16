@@ -4,9 +4,8 @@
 
 To understand basic quantum gates and quantum circuits.
 
-## Description
+## Overview
 
-In this project, you will:
 - Install Qiskit and set up the environment.
 - Create a basic quantum circuit with a single qubit.
 - Apply basic quantum gates (X, H, Z) and measure the qubit.
@@ -72,7 +71,7 @@ Quantum gates are the basic building blocks of quantum circuits, similar to clas
   - If the qubit is in state \( |0\rangle \), applying the Z gate leaves it in \( |0\rangle \).
   - If the qubit is in state \( |1\rangle \), applying the Z gate changes it to \( -|1\rangle \).
 
-### Results
+## Results
 
 The visualizations can be found within this project folder. They show the behavior of the specified quantum gates on a single qubit:
 
