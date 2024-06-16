@@ -32,6 +32,8 @@ The algorithm involves three main steps:
 4. **Measurement**:
    - After applying the oracle and diffusion operator, we measure the qubits to collapse their states. The target state should have a significantly higher probability of being measured.
 
+![grovers_circuit](Figure_1-Grovers_Circuit.png)
+
 ### Database Representation
 In this experiment, the database is conceptually represented by all possible states of 3 qubits. The possible states (entries in the database) are:
 
@@ -53,6 +55,8 @@ Grover's algorithm should significantly increase the probability of measuring th
 Results of Grover's Algorithm:
 {'101': 804, '000': 34, '001': 22, '011': 35, '111': 32, '110': 33, '010': 33, '100': 31}
 ```
+
+![Results](Figure_2-Grovers_Results.png)
 
 ### Target State |101⟩
 The target state 101 (binary for 5) was measured 804 times out of 1024 shots. This high count indicates that Grover's algorithm successfully amplified the probability amplitude of the target state.
