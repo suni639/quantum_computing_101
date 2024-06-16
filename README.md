@@ -16,7 +16,7 @@ Each project directory will have its own `README.md` with detailed instructions 
 8. [**Hybrid Quantum-Classical Algorithms**](./Project_8_Hybrid_Quantum_Classical_Algorithms/README.md)
 
 ### Prerequisites
-
+See the requirements.txt file for more details, but in summary the following was used;
 - Python 3.7 or later
 - Qiskit
 
