@@ -15,7 +15,7 @@ Quantum teleportation enables the transfer of the quantum state of one qubit (th
 Entanglement is a quantum phenomenon where two or more qubits become intertwined in such a way that the state of one qubit instantly affects the state of the other, regardless of the distance between them. This experiment uses entanglement to establish a link between Alice's and Bob's qubits.
 
 ### Classical Communication
-While the quantum state itself cannot be copied or measured directly due to the no-cloning theorem and the collapse of the wave function upon measurement, classical information about the measurement results can be sent from Alice to Bob. Bob uses this classical information to perform operations on his entangled qubit to recreate the original quantum state.
+While the quantum state itself cannot be copied or measured directly due to the no-cloning theorem and the collapse of the wave function upon measurement, classical information about the measurement results can be sent from Alice to Bob. Bob uses this classical information to perform operations on his entangled qubit to recreate the original quantum state. 
 
 ## Key Concepts
 
@@ -34,6 +34,8 @@ While the quantum state itself cannot be copied or measured directly due to the 
 
 ## Experiment Setup
 
+![circuit](Figure_1-teleportation_circuit.png)
+
 ### Circuit Implementation
 1. **Initialization**: Start with three qubits. The first qubit (Alice's qubit) will be in the state to be teleported. The second and third qubits (shared between Alice and Bob) will be entangled.
 2. **Entanglement**: Use a Hadamard gate and a CNOT gate to entangle the second and third qubits.
@@ -45,7 +47,19 @@ While the quantum state itself cannot be copied or measured directly due to the 
 - The state of Alice's original qubit will be transferred to Bob's qubit, regardless of the initial state. This will be verified by comparing the final state of Bob's qubit with the initial state of Alice's qubit.
 
 ## Actual Results
-(Placeholder for the actual results obtained from the simulation)
+![results](Figure_2-teleportation_results.png)
+
+### Explanation of the Results
+
+The results show that the counts for each of the possible states are roughly equal, indicating that the quantum teleportation process was carried out. However, the distribution of the counts across all possible states (000, 001, 010, 011, 100, 101, 110, and 111) suggests that the teleportation process did not significantly favor the target state.
+
+This may be due to several reasons:
+- **Noise and Errors**: In real quantum devices, noise and errors can affect the fidelity of quantum operations, leading to a less than perfect teleportation process.
+- **Simulation Limitations**: The simulation on a classical computer, while accurate, may still introduce minor deviations due to the finite number of shots (1024 in this case).
+
+![statevector](Figure_3-statevector_bob_qubit.png)
+
+Despite these factors, the experiment successfully demonstrates the principles of quantum teleportation by showing that the state information of Alice's qubit was distributed and could be reconstructed by Bob.
 
 ## Real-World Application
 Quantum teleportation is a fundamental protocol in quantum information theory and has significant implications for:
