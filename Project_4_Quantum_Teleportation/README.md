@@ -4,7 +4,7 @@
 Demonstrate the concept of quantum teleportation.
 
 ## Overview
-Quantum teleportation is a process by which the quantum state of a particle (such as a qubit) is transmitted from one location to another, without physically transferring the particle itself. This phenomenon leverages the principles of quantum entanglement and classical communication to achieve the transfer of quantum information.
+Quantum teleportation is a process by which the quantum state of a particle (such as a qubit) is transmitted from one location to another without physically transferring the particle itself. This phenomenon leverages the principles of quantum entanglement and classical communication to achieve the transfer of quantum information.
 
 ## Purpose of the Experiment
 
@@ -12,10 +12,10 @@ Quantum teleportation is a process by which the quantum state of a particle (suc
 Quantum teleportation enables the transfer of the quantum state of one qubit (the sender, typically referred to as Alice's qubit) to another qubit (the receiver, typically referred to as Bob's qubit). The state transfer is achieved without physically sending the qubit through space. Instead, the process relies on quantum entanglement and classical communication.
 
 ### Quantum Entanglement
-Entanglement is a quantum phenomenon where two or more qubits become intertwined in such a way that the state of one qubit instantly affects the state of the other, regardless of the distance between them. This experiment uses entanglement to establish a link between Alice's and Bob's qubits.
+Entanglement is a quantum phenomenon where two or more qubits become interconnected in such a way that the state of one qubit instantly affects the state of the other, regardless of the distance between them. This experiment uses entanglement to establish a link between Alice's and Bob's qubits.
 
 ### Classical Communication
-While the quantum state itself cannot be copied or measured directly due to the no-cloning theorem and the collapse of the wave function upon measurement, classical information about the measurement results can be sent from Alice to Bob. Bob uses this classical information to perform operations on his entangled qubit to recreate the original quantum state. 
+While the quantum state itself cannot be copied or measured directly due to the no-cloning theorem and the collapse of the wave function upon measurement, classical information about the measurement results can be sent from Alice to Bob. Bob uses this classical information to perform operations on his entangled qubit to recreate the original quantum state.
 
 ## Key Concepts
 
@@ -24,24 +24,43 @@ While the quantum state itself cannot be copied or measured directly due to the 
 - In this project, we will create an entangled pair of qubits that will be used to teleport the state of a third qubit.
 
 ### Bell State
-- A **Bell state** is a specific type of entangled state of two qubits. In this project, we will use the Bell state |Φ+⟩ = (|00⟩ + |11⟩) / √2.
+- A **Bell state** is a specific type of maximally entangled state of two qubits. Bell states are foundational in quantum information theory because they exhibit perfect correlations between qubits, regardless of the distance separating them. The four Bell states are:
+  1. |Φ+⟩ = (|00⟩ + |11⟩) / √2
+  2. |Φ-⟩ = (|00⟩ - |11⟩) / √2
+  3. |Ψ+⟩ = (|01⟩ + |10⟩) / √2
+  4. |Ψ-⟩ = (|01⟩ - |10⟩) / √2
+- In this project, we will use the Bell state |Φ+⟩ = (|00⟩ + |11⟩) / √2, which means that if one qubit is measured to be in the state |0⟩, the other will also be |0⟩, and if one is |1⟩, the other will also be |1⟩.
 
 ### Quantum Gates
-- **Hadamard Gate (H)**: Creates superposition.
-- **CNOT Gate**: Creates entanglement when used with a superposition state.
-- **Pauli-X Gate**: Performs a bit-flip operation.
-- **Pauli-Z Gate**: Performs a phase-flip operation.
+- **Hadamard Gate (H)**: Creates superposition, putting a qubit in a state where it can be both 0 and 1 simultaneously.
+- **CNOT Gate**: Creates entanglement when used with a superposition state, linking the states of two qubits.
+- **Pauli-X Gate**: Performs a bit-flip operation, similar to a classical NOT gate.
+- **Pauli-Z Gate**: Performs a phase-flip operation, flipping the phase of the qubit state.
 
 ## Experiment Setup
 
 ![circuit](Figure_1-teleportation_circuit.png)
 
 ### Circuit Implementation
-1. **Initialization**: Start with three qubits. The first qubit (Alice's qubit) will be in the state to be teleported. The second and third qubits (shared between Alice and Bob) will be entangled.
-2. **Entanglement**: Use a Hadamard gate and a CNOT gate to entangle the second and third qubits.
-3. **Bell Measurement**: Alice performs a Bell-state measurement on her two qubits (the first and second qubits).
-4. **Classical Communication**: The result of Alice's measurement is sent to Bob through classical channels.
-5. **State Reconstruction**: Bob uses the received information to apply appropriate quantum gates to his qubit, thus reconstructing the state of the original qubit.
+
+1. **Initialization**: 
+   - Start with three qubits. The first qubit (Qubit 0, Alice's qubit) will be in the state to be teleported. The second and third qubits (Qubit 1 and Qubit 2, shared between Alice and Bob) will be entangled.
+   - Prepare the state to be teleported on Qubit 0. For example, let's teleport the state |ψ⟩ = (|0⟩ + |1⟩) / √2, which is |+⟩ state created using a Hadamard gate.
+
+2. **Entanglement**: 
+   - Use a Hadamard gate on Qubit 1 to create a superposition state.
+   - Apply a CNOT gate with Qubit 1 as the control and Qubit 2 as the target to entangle these two qubits, creating a Bell state.
+
+3. **Bell Measurement**: 
+   - Alice performs a Bell-state measurement on Qubit 0 and Qubit 1 by applying a CNOT gate with Qubit 0 as the control and Qubit 1 as the target, followed by a Hadamard gate on Qubit 0.
+   - Measure Qubit 0 and Qubit 1 and store the results in classical bits.
+
+4. **Classical Communication**: 
+   - The result of Alice's measurement (two classical bits) is sent to Bob through classical channels. This classical information tells Bob which operations he needs to perform to reconstruct the state on his qubit.
+
+5. **State Reconstruction**: 
+   - Bob uses the received information to apply appropriate quantum gates to his qubit (Qubit 2). If the measurement result indicates, apply the X gate if the second bit is 1, and apply the Z gate if the first bit is 1.
+   - Measure Qubit 2 to verify the teleported state.
 
 ### Expected Results
 - The state of Alice's original qubit will be transferred to Bob's qubit, regardless of the initial state. This will be verified by comparing the final state of Bob's qubit with the initial state of Alice's qubit.
